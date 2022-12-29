@@ -14,6 +14,10 @@ function callback(e) {
 }
 
 function updatePlayer() {
-  const currentTime = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
-  player.setCurrentTime(currentTime);
+  const savedValues = localStorage.getItem(LOCALSTORAGE_KEY);
+
+  if (savedValues) {
+    const currentTime = JSON.parse(savedValues);
+    player.setCurrentTime(currentTime);
+  }
 }
